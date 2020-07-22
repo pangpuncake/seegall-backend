@@ -4,6 +4,8 @@ const bodyParser = require("body-parser");
 const app = express();
 const codeRoutes = require("./routes/code-routes");
 
+const PORT = process.env.PORT || 5000;
+
 app.use(bodyParser.json());
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -20,4 +22,4 @@ app.use((req, res, next) => {
 
 app.use("/api/code", codeRoutes);
 
-app.listen(5000);
+app.listen(PORT);
